@@ -34,7 +34,7 @@ async def start(bot, update):
 
 
 
-  try:try:
+  try:ttry:
         file_uid = update.command[1]
     except IndexError:
         file_uid = False
