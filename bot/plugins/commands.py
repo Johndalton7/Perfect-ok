@@ -24,13 +24,23 @@ async def start(bot, update):
           await update.reply_text(
            text="Hey താഴെ കാണുന്ന  channel ജോയിൻ ആയാലേ നിങ്ങൾ റിക്വസ്റ്റ്‌ ചെയ്യുന്ന സിനിമകൾ ലഭിക്കുകയൊള്ളൂ. ഇപ്പോൾ തന്നെ ജോയിൻ ആവൂ..👇"‚
         reply_markup=InlineKeyboardButton([
-            [ InlineKeyboardButton(text=" 🎥JOIN OUR CHANNEL🎥 ",url=f"https://t.me/MFMOVIES3"]
-
+           [ InlineKeyboardButton(text=" 🎥JOIN OUR CHANNEL🎥 ",url=f"https://t.me/MFMOVIES3"]
      ])
 
    )
     return
-  expect Exception:
+
+  try:try:
+        file_uid = update.command[1]
+    except IndexError:
+        file_uid = False
+    
+    if file_uid:
+        file_id, file_name, file_caption, file_type = await db.get_file(file_uid)
+        
+        if (file_id or file_type) == None:
+            return
+  
     
         caption = file_caption if file_caption != ("" or None) else ("<code>" + file_name + "</code>")
         
