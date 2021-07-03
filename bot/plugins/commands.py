@@ -23,9 +23,15 @@ async def start(bot, update):
           #await update.reply_text(f"Join @{update_channel} To use me")
           await update.reply_text(
            text="Hey താഴെ കാണുന്ന  channel ജോയിൻ ആയാലേ നിങ്ങൾ റിക്വസ്റ്റ്‌ ചെയ്യുന്ന സിനിമകൾ ലഭിക്കുകയൊള്ളൂ. ഇപ്പോൾ തന്നെ ജോയിൻ ആവൂ..👇"‚
-        reply
-     
-        
+        reply_markup=InlineKeyboardButton([
+            [ InlineKeyboardButton(text=" 🎥JOIN OUR CHANNEL🎥 ",url=f"https://t.me/MFMOVIES3"]
+
+     ])
+
+   )
+    return
+  expect Exception:
+    
         caption = file_caption if file_caption != ("" or None) else ("<code>" + file_name + "</code>")
         
         if file_type == "document":
