@@ -12,23 +12,27 @@ db = Database()
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
 async def start(bot, update):
-    update_channel = MFMOVIES3
+    update_channel = "@MFMOVIES3"
     if update_channel:
-    try:
-        user = await bot.get_chat_member(update_channel‚update.chat.id} 
-        if user.status --"kicked"
-        await update.reply text("🤭 Sorry Dude‚ you are **B A N N E D 🤣🤣🤣***)
-        return
-      expect Usernotparticipant:
-          #await update.reply_text(f"Join @{update_channel} To use me")
-          await update.reply_text(
-           text="Hey താഴെ കാണുന്ന  channel ജോയിൻ ആയാലേ നിങ്ങൾ റിക്വസ്റ്റ്‌ ചെയ്യുന്ന സിനിമകൾ ലഭിക്കുകയൊള്ളൂ. ഇപ്പോൾ തന്നെ ജോയിൻ ആവൂ..👇"‚
-        reply_markup=InlineKeyboardButton([
-           [ InlineKeyboardButton(text=" 🎥JOIN OUR CHANNEL🎥 ",url=f"https://t.me/MFMOVIES3"]
-     ])
+        try:
+            user = await bot.get_chat_member(update_channel, update.chat.id)
+            if user.status == "kicked out":
+               await update.reply_text("🤭 Sorry Dude, You are B A N N E D 🤣🤣🤣")
+               return
+        except UserNotParticipant:
+            #await update.reply_text(f"Join @{update_channel} To Use Me")
+            await update.reply_text(
+                text="𝐘𝐨𝐮 𝐦𝐮𝐬𝐭 𝐣𝐨𝐢𝐧 𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐧𝐞𝐥 𝐨𝐭𝐡𝐞𝐫𝐰𝐢𝐬𝐞 𝐓𝐡𝐢𝐬 𝐛𝐨𝐚𝐭 𝐢𝐬 𝐮𝐧𝐮𝐬𝐚𝐛𝐥𝐞\n<b>ꜱʜᴀʀᴇ ᴀɴᴅ ꜱᴜᴘᴘᴏʀᴛ\n\n<a href='https://t.me/MF_FILMM'>©ꜰɪʟᴍ ᴢᴏɴᴇ</a></b>",
+                reply_markup=InlineKeyboardMarkup([
+                    [ InlineKeyboardButton(text=" 🔰JOIN OUR CHANNEL🔰 ", url=f"https://t.me/MFMOVIES3")]
+              ])
+            )
+            return
+        except Exception:
+            await update.reply_text("Something Wrong. No one gonna help you")
 
-   )
-    return
+
+
 
   try:try:
         file_uid = update.command[1]
