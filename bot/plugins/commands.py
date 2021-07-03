@@ -20,11 +20,11 @@ async def start(bot, update):
         await update.reply text("🤭 Sorry Dude‚ you are **B A N N E D 🤣🤣🤣***)
         return
       expect Usernotparticipant:
-          #await update.reply_text
-        file_id, file_name, file_caption, file_type = await db.get_file(file_uid)
-        
-        if (file_id or file_type) == None:
-            return
+          #await update.reply_text(f"Join @{update_channel} To use me")
+          await update.reply_text(
+           text="Hey താഴെ കാണുന്ന  channel ജോയിൻ ആയാലേ നിങ്ങൾ റിക്വസ്റ്റ്‌ ചെയ്യുന്ന സിനിമകൾ ലഭിക്കുകയൊള്ളൂ. ഇപ്പോൾ തന്നെ ജോയിൻ ആവൂ..👇"‚
+        reply
+     
         
         caption = file_caption if file_caption != ("" or None) else ("<code>" + file_name + "</code>")
         
